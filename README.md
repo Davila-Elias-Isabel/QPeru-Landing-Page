@@ -1,41 +1,190 @@
 # QPerú — Landing page
 
-Sitio estático (HTML + CSS + JS, sin build) para la comunidad QPerú, división peruana de QCousins / QWorld. Listo para desplegar en Vercel.
+Sitio de la comunidad **QPerú**, división peruana de QCousins dentro de la red global
+QWorld. Sitio estático: HTML + CSS + un JS mínimo. Sin framework, sin build, sin
+dependencias.
+
+**Producción:** https://qperu.vercel.app
+
+---
 
 ## Estructura
 
 ```
-qperu-landing/
-├── index.html      # toda la página (secciones: hero, misión, actividades, red global, comunidad, agenda, únete)
-├── styles.css      # tokens de marca, tipografía y el motivo de circuito cuántico
-├── script.js       # reveals al hacer scroll
+.
+├── index.html      # toda la página, una sola vista
+├── styles.css      # tokens de marca + layout + el bloque HERO al final
+├── script.js       # reveal de secciones al hacer scroll (IntersectionObserver)
 └── assets/
-    ├── logo.png    # logo completo (fondo transparente)
-    └── icon.png    # solo el colibrí (favicon / redes)
+    ├── logo.png    # lockup horizontal  → navbar y meta og:image
+    ├── logo1.png   # lockup vertical    → hero (isotipo arriba, "QPerú›" abajo)
+    ├── icon.png    # solo el isotipo    → favicon
+    └── wa-qr.png   # QR del grupo "QPerú · Init" de WhatsApp
 ```
 
-## Desplegar en Vercel
+### Secciones
 
-**Opción A — desde GitHub (recomendada):**
-1. Crea un repo (p. ej. `qperu-landing`) y sube estos archivos.
-2. En [vercel.com](https://vercel.com) → **Add New → Project** → importa el repo.
-3. Framework preset: **Other** (no necesita build). Deploy y listo.
+| ancla | contenido |
+|---|---|
+| `#inicio` | navbar (sticky) |
+| — | hero: breadcrumb, título, subtítulo, 2 CTAs, logo vertical |
+| — | banda del circuito cuántico (SVG animado) |
+| `#mision` | misión y tres datos rápidos |
+| `#actividades` | talleres / charlas / comunidad, con mini-circuitos SVG |
+| `#red` | QWorld → QCousins → QPerú |
+| `#comunidad` | públicos + chips de idioma |
+| `#agenda` | placeholder del calendario 2026 |
+| `#unete` | QR de WhatsApp + correo |
+| — | footer: atribución a QWorld, créditos y copyright |
 
-**Opción B — CLI:**
+---
+
+## Decisiones de diseño (leer antes de editar)
+
+Estas cosas parecen raras si no se conoce el contexto. **No las "arregles" sin leer.**
+
+### 1. Los `<br class="brk">` del título son intencionales
+
+```html
+<h1>Democratizamos <br class="brk">la <br class="brk">computación <br class="brk">
+<span class="rojo">cuántica</span> en <br class="brk">el Perú.</h1>
+```
+
+El diseño de referencia parte el título así:
+
+```
+Democratizamos
+la
+computación
+cuántica en
+el Perú.
+```
+
+Ese quiebre **no se puede lograr con CSS**. "la computación" es más angosto que
+"Democratizamos", así que ningún `max-width` va a dejar "la" sola en su línea — el
+ajuste automático siempre subiría "computación". Por eso los saltos son manuales.
+
+Los `<br>` se ocultan por debajo de 1100px (`.brk { display: none }`) para que en
+tablet y celular el texto fluya normal.
+
+**Ojo:** cada `<br>` lleva un espacio antes. Sin ese espacio, al ocultarlos las
+palabras se pegan ("Democratizamoslacomputación") y desbordan la pantalla en celular.
+
+### 2. El contenedor es de 1680px, no de 1120px
+
+```css
+:root { --maxw: 1680px; --pad-x: 60px; }
+```
+
+Con 1120px el contenido quedaba encajonado al centro y dejaba ~200px muertos a cada
+lado en una pantalla de 1536px — el hero se veía chico. Con 1680px el contenido
+arranca en x=60 igual que el diseño de referencia, y el tope solo actúa en monitores
+muy anchos para que la línea de texto no se vuelva ilegible.
+
+`.container` y `.nav-inner` usan las mismas variables, así que el borde izquierdo del
+hero y el de todas las secciones de abajo quedan alineados. Si cambias una, cambia la
+otra.
+
+### 3. El bloque HERO va al final de styles.css
+
+El CSS del hero, navbar y contenedor está en un bloque marcado al final del archivo,
+a propósito: gana por orden de cascada sobre cualquier regla anterior.
+
+**Si editas ese bloque, cuenta las llaves.** Una llave `}` de más o de menos hace que
+el navegador ignore en silencio todo lo que viene después — sin errores, sin avisos.
+Es la falla más difícil de detectar en este proyecto:
+
 ```bash
-npm i -g vercel
-cd qperu-landing
-vercel --prod
+python3 -c "c=open('styles.css').read(); print(c.count('{'), c.count('}'))"
+# los dos números deben ser iguales
 ```
 
-## Antes de publicar — reemplazar
+### 4. El SVG del circuito está fuera del hero
 
-- [ ] **Correo de contacto**: en `index.html`, sección `#unete`, cambiar `mailto:hola@qperu.org` por el correo real.
-- [ ] **QR de WhatsApp**: la imagen `assets/wa-qr.png` es el QR del grupo `QPerú · Init`. Si cambia el grupo o vence el enlace, reemplaza este archivo (mismo nombre).
-- [ ] **Dominio**: si compran dominio propio, configurarlo en Vercel → Settings → Domains.
+El hero usa `min-height: calc(100vh - 138px)`. Si el SVG del circuito estuviera dentro,
+rompería esa altura. Vive en `.circuit-band`, justo después del `</section>` del hero.
 
-## Personalizar
+---
 
-- Colores y tipografías están como variables CSS al inicio de `styles.css` (`--rojo`, `--tinta`, etc.).
-- Para agregar eventos reales, reemplaza la tarjeta placeholder de la sección `#agenda` por tarjetas por evento (fecha en `.agenda-estado`, título, descripción y botón de inscripción).
-- Idiomas: cuando la extensión a quechua esté activa, en la sección `#comunidad` cambia el chip `QU` de `class="chip"` a `class="chip chip-on"` y quita el texto "en camino".
+## Breakpoints
+
+| ancho | qué cambia |
+|---|---|
+| > 1100px | 2 columnas (52% / 48%), `--pad-x: 60px`, `<br>` visibles |
+| ≤ 1100px | 1 columna, logo debajo del texto, `--pad-x: 40px`, `<br>` ocultos |
+| ≤ 700px | menú oculto, CTAs apilados, `--pad-x: 24px` |
+
+Que el logo aparezca **debajo** del texto en una ventana de ~1000px es correcto, no un
+bug. Para ver el diseño de escritorio hace falta una ventana de 1100px o más
+(y zoom al 100% — `Cmd + 0`).
+
+---
+
+## Desarrollo local
+
+```bash
+python3 -m http.server 8000
+```
+
+Y abre http://localhost:8000. No hay nada que compilar.
+
+Para revisar el hero de verdad, usa el inspector en 1536 × 1024. Referencias medidas
+del diseño original:
+
+- navbar: 138px de alto
+- título: arranca en x≈60, font-size ≈ 81px, 5 líneas
+- logo del hero: 560px de ancho
+- sin scroll horizontal en 1536px, 1020px ni 390px
+
+---
+
+## Deploy
+
+Vercel está conectado al repo. **Cada push a `main` redespliega solo** — no hay que
+hacer nada más.
+
+```bash
+git add -A
+git commit -m "..."
+git push
+```
+
+Configuración en Vercel (ya seteada, no tocar):
+
+- Framework Preset: **Other**
+- Build Command / Output Directory / Install Command: **vacíos**
+- Root Directory: **raíz del repo**
+- Environment Variables: **ninguna**
+
+> **No agregues API keys aquí.** El sitio es 100% frontend: cualquier valor terminaría
+> visible en el navegador de quien visite la página, aunque el repo sea privado. Solo
+> tendría sentido si algún día se agrega un endpoint en `/api/` que corra en el servidor.
+
+Después de cada deploy, abre el sitio con `Cmd + Shift + R` — Vercel cachea fuerte y es
+normal seguir viendo la versión anterior.
+
+---
+
+## Mantenimiento
+
+**Cambiar el QR de WhatsApp** — reemplaza `assets/wa-qr.png` con el mismo nombre. No
+hay que tocar el HTML.
+
+**Agregar eventos reales** — en `#agenda`, reemplaza la tarjeta placeholder por una
+tarjeta por evento: fecha en `.agenda-estado`, título, descripción y botón de
+inscripción.
+
+**Activar quechua** — en `#comunidad`, cambia el chip `QU` de `class="chip"` a
+`class="chip chip-on"` y quita el texto "en camino".
+
+**Correo de contacto** — hoy apunta a `hola@qperu.org` en la sección `#unete`.
+Cámbialo cuando exista el buzón real.
+
+**Créditos del footer** — el `<footer>` no lleva imagen a propósito. Antes tenía un
+`icon.png` que se rompía si el archivo faltaba en el deploy, y un logo roto se ve peor
+que ningún logo. Hoy es solo texto: atribución a QWorld a la izquierda, y créditos +
+copyright a la derecha (`.footer-credito`). En celular se apilan.
+
+**Colores y tipografías** — variables CSS al inicio de `styles.css`:
+`--rojo: #F10515`, `--tinta: #121316`. Las tipografías (Archivo, Archivo Black,
+IBM Plex Mono) se cargan desde Google Fonts en el `<head>`.
