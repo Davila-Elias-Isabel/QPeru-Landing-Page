@@ -179,7 +179,6 @@ http://localhost:8000
 ## 👩‍💻 Autor
 
 **Isabel Dávila Elías**  
-📧 [rociodavilaelias@gmail.com](mailto:rociodavilaelias@gmail.com)
 
 ---
 
