@@ -145,13 +145,22 @@ p + p { margin-top: 1rem; }
 
 /* ── Hero ───────────────────────────────────── */
 
-.hero { padding: 70px 0 64px; }
+.hero {
+  width: 100%;
+  max-width: 1536px;
+  margin: 0 auto;
+  padding: 70px 60px 64px;
+}
 
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.hero-copy {
+  max-width: 700px;
 }
 
 .hero-sub {
@@ -166,12 +175,13 @@ p + p { margin-top: 1rem; }
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  min-width: 0;
 }
 
 .hero-mark img {
-  width: clamp(350px, 45vw, 650px);
+  width: min(100%, 560px);
+  max-width: 560px;
   height: auto;
-  max-width: 650px;
   object-fit: contain;
 }
 
