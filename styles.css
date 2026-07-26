@@ -121,7 +121,7 @@ p + p { margin-top: 1rem; }
 }
 
 .nav-logo img {
-  width: clamp(150px, 15vw, 240px);
+  width: clamp(170px, 15vw, 240px);
   height: auto;
   object-fit: contain;
 }
@@ -145,11 +145,11 @@ p + p { margin-top: 1rem; }
 
 /* ── Hero ───────────────────────────────────── */
 
-.hero { padding: 88px 0 64px; }
+.hero { padding: 70px 0 64px; }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
 }
@@ -162,12 +162,17 @@ p + p { margin-top: 1rem; }
   text-wrap: pretty;
 }
 
+.hero-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .hero-mark img {
   width: clamp(280px, 38vw, 520px);
   height: auto;
   max-width: 520px;
   object-fit: contain;
-  margin-left: auto;
 }
 
 /* ── Signature: circuito cuántico / línea de Nazca ── */
