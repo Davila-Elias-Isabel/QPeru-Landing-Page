@@ -120,7 +120,11 @@ p + p { margin-top: 1rem; }
   gap: 32px;
 }
 
-.nav-logo img { height: 80px; width: auto; }
+.nav-logo img {
+  width: clamp(150px, 15vw, 240px);
+  height: auto;
+  object-fit: contain;
+}
 
 .nav-links {
   display: flex;
@@ -159,8 +163,9 @@ p + p { margin-top: 1rem; }
 }
 
 .hero-mark img {
-  width: min(100%, 850px);
+  width: clamp(280px, 38vw, 520px);
   height: auto;
+  max-width: 520px;
   object-fit: contain;
   margin-left: auto;
 }
