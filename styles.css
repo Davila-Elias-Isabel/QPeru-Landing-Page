@@ -496,6 +496,19 @@ p + p { margin-top: 1rem; }
 
 .footer-copy { margin-left: auto; }
 
+.footer-credits {
+  border-top: 1px solid var(--linea);
+  padding: 32px 0;
+  margin-top: 32px;
+  font-size: 0.9rem;
+  color: var(--gris);
+  text-align: center;
+}
+
+.footer-credits p {
+  margin: 0 0 8px 0;
+}
+
 /* ── Reveal al hacer scroll ─────────────────── */
 
 .reveal-group > * {
