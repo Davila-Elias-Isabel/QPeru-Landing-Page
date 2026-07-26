@@ -1,218 +1,189 @@
-# QPerú — Landing page
+# QPerú — Landing Page
 
-Sitio de **QPerú**, comunidad peruana de computación cuántica, en proceso de integración
-a QCousins / QWorld. Sitio estático: HTML + CSS + un JS mínimo. Sin framework, sin build,
-sin dependencias.
+Landing page moderna y responsive para **QPerú**, la comunidad peruana de computación cuántica y división peruana de QCousins (QWorld).
 
-**Producción:** https://qperu.vercel.app
+## 🎯 Características
 
----
+### Navbar
+- **Logo horizontal** (logo2.png): isotipo + texto "QPerú >" 
+- **Altura**: 138px en desktop
+- **Navegación**: Enlaces a Misión, Actividades, Red global, Comunidad
+- **CTA**: Botón rojo "Únete" en esquina derecha
+- **Responsive**: Se colapsa a móvil con navegación oculta
 
-## Estructura
+### Hero Section
+- **Composición**: Grid 52% texto / 48% logo
+- **Altura**: Ocupa 100% de pantalla visible (calc(100vh - 138px))
+- **Texto izquierda**:
+  - Breadcrumb rojo: "QWorld → QCousins → QPerú"
+  - Título grande (84px máx): "Democratizamos la computación **cuántica** en el Perú"
+  - Palabra "cuántica" en rojo, resto en negro
+  - Subtítulo gris (19px): describe la comunidad
+  - Dos botones: rojo sólido + blanco con borde rojo
+- **Logo derecha**:
+  - Logo vertical grande (logo1.png): isotipo + texto "QPerú"
+  - Tamaño: min(88%, 560px) - responsivo sin deformaciones
+  - Centrado en su contenedor
+
+### Banda Decorativa
+- SVG con circuito cuántico y animación de trazado
+- Separador visual entre Hero y secciones siguientes
+
+### Secciones de Contenido
+1. **Misión**: Propósito y valores (Abierta, Global, Trilingüe)
+2. **Actividades**: Talleres, Charlas, Comunidad activa (3 cards)
+3. **Red Global**: Conexión con QWorld y QCousins
+4. **Comunidad**: A quién va dirigida (Estudiantes, Profesionales, Comunidades)
+5. **Agenda**: Próximas actividades
+6. **Únete**: Llamada a acción con QR de WhatsApp
+
+### Footer
+- Información: "QPerú — división peruana de QCousins, parte de QWorld"
+- Copyright: "© 2026 QPerú"
+- Créditos:
+  - "QPerú — Comunidad peruana de computación cuántica"
+  - "Hecho por Isabel Dávila Elías · © 2026 QPerú"
+
+## 🎨 Diseño Visual
+
+### Colores
+- **Rojo principal**: #F10515 (marca QPerú)
+- **Rojo oscuro**: #C50411 (hover)
+- **Tinta**: #121316 (texto principal)
+- **Gris**: #5E5F66 (texto secundario)
+- **Humo**: #F7F6F3 (fondos claros)
+- **Blanco**: #FFFFFF (fondo)
+
+### Tipografía
+- **Display**: Archivo Black (títulos)
+- **Cuerpo**: Archivo (texto)
+- **Mono**: IBM Plex Mono (etiquetas, notación cuántica)
+
+### Proporciones (Desktop 1536×1024)
+- Navbar: 138px
+- Hero: ~850px (ocupa 100vh - navbar)
+- Contenido: max-width 1680px, padding 60px horizontal
+- Texto Hero: max-width 700px
+- Logo Hero: max-width 560px
+
+## 📱 Responsive
+
+### Desktop (≥1100px)
+- Grid 52% / 48% (texto / logo)
+- Título: 84px
+- Logo: 560px
+- Padding: 60px
+
+### Tablet (1100px - 700px)
+- Grid: 1 columna
+- Título: 48px
+- Logo: 420px
+- Padding: 40px
+- Navbar: 96px
+
+### Mobile (<700px)
+- Grid: 1 columna vertical
+- Título: 34-48px
+- Logo: 320px
+- Padding: 24px
+- Menú: oculto
+- Botones: apilados verticales
+
+## 📁 Estructura de Archivos
 
 ```
-.
-├── index.html      # toda la página, una sola vista
-├── styles.css      # tokens de marca + layout + el bloque HERO al final
-├── script.js       # reveal de secciones al hacer scroll (IntersectionObserver)
-└── assets/
-    ├── logo.png    # lockup horizontal  → navbar y meta og:image
-    ├── logo1.png   # lockup vertical    → hero (isotipo arriba, "QPerú›" abajo)
-    ├── icon.png    # solo el isotipo    → favicon
-    └── wa-qr.png   # QR del grupo "QPerú · Init" de WhatsApp
+qperu-landing/
+├── index.html           # Estructura HTML
+├── styles.css           # Estilos y responsive
+├── script.js            # Funcionalidad (scroll, reveal)
+├── README.md            # Este archivo
+├── assets/
+│   ├── logo1.png       # Logo vertical (Hero) - 1200×1219px
+│   ├── logo2.png       # Logo horizontal (Navbar)
+│   ├── icon.png        # Isotipo (favicon)
+│   └── wa-qr.png       # QR WhatsApp
+└── .git/                # Versionado con Git
 ```
 
-### Secciones
+## 🔧 Especificaciones Técnicas
 
-| ancla | contenido |
-|---|---|
-| `#inicio` | navbar (sticky) |
-| — | hero: breadcrumb, título, subtítulo, 2 CTAs, logo vertical |
-| — | banda del circuito cuántico (SVG animado) |
-| `#mision` | misión y tres datos rápidos |
-| `#actividades` | talleres / charlas / comunidad, con mini-circuitos SVG |
-| `#red` | relación con QCousins / QWorld |
-| `#comunidad` | públicos + chips de idioma |
-| `#agenda` | placeholder del calendario 2026 |
-| `#unete` | QR de WhatsApp + correo |
-| — | footer: nombre de la comunidad, créditos y copyright |
-
----
-
-## Decisiones de diseño (leer antes de editar)
-
-Estas cosas parecen raras si no se conoce el contexto. **No las "arregles" sin leer.**
-
-### 1. Los `<br class="brk">` del título son intencionales
-
-```html
-<h1>Democratizamos <br class="brk">la <br class="brk">computación <br class="brk">
-<span class="rojo">cuántica</span> en <br class="brk">el Perú.</h1>
-```
-
-El diseño de referencia parte el título así:
-
-```
-Democratizamos
-la
-computación
-cuántica en
-el Perú.
-```
-
-Ese quiebre **no se puede lograr con CSS**. "la computación" es más angosto que
-"Democratizamos", así que ningún `max-width` va a dejar "la" sola en su línea — el
-ajuste automático siempre subiría "computación". Por eso los saltos son manuales.
-
-Los `<br>` se ocultan por debajo de 1100px (`.brk { display: none }`) para que en
-tablet y celular el texto fluya normal.
-
-**Ojo:** cada `<br>` lleva un espacio antes. Sin ese espacio, al ocultarlos las
-palabras se pegan ("Democratizamoslacomputación") y desbordan la pantalla en celular.
-
-### 2. El contenedor es de 1680px, no de 1120px
-
+### CSS Variables
 ```css
-:root { --maxw: 1680px; --pad-x: 60px; }
+:root {
+  --maxw: 1680px;           /* ancho máximo contenedor */
+  --pad-x: 60px;            /* padding horizontal */
+  --rojo: #F10515;
+  --tinta: #121316;
+  --gris: #5E5F66;
+  --blanco: #FFFFFF;
+  --humo: #F7F6F3;
+  --linea: #E7E5E0;
+  --f-display: "Archivo Black";
+  --f-body: "Archivo";
+  --f-mono: "IBM Plex Mono";
+}
 ```
 
-Con 1120px el contenido quedaba encajonado al centro y dejaba ~200px muertos a cada
-lado en una pantalla de 1536px — el hero se veía chico. Con 1680px el contenido
-arranca en x=60 igual que el diseño de referencia, y el tope solo actúa en monitores
-muy anchos para que la línea de texto no se vuelva ilegible.
+### Animaciones
+- **Circuito cuántico**: Trazado SVG (1.4s) + aparición de elementos (0.5s)
+- **Reveal al scroll**: Fade-in + translateY para elementos con clase `.reveal-group`
+- **Hover**: Transiciones suaves en botones y enlaces
 
-`.container` y `.nav-inner` usan las mismas variables, así que el borde izquierdo del
-hero y el de todas las secciones de abajo quedan alineados. Si cambias una, cambia la
-otra.
+### Accesibilidad
+- Semántica HTML5 correcta
+- Focus visible rings (3px rojo)
+- ARIA labels en elementos interactivos
+- Meta tags para SEO y redes sociales
 
-### 3. El bloque HERO va al final de styles.css
+## 🚀 Deployment
 
-El CSS del hero, navbar y contenedor está en un bloque marcado al final del archivo,
-a propósito: gana por orden de cascada sobre cualquier regla anterior.
-
-**Si editas ese bloque, cuenta las llaves.** Una llave `}` de más o de menos hace que
-el navegador ignore en silencio todo lo que viene después — sin errores, sin avisos.
-Es la falla más difícil de detectar en este proyecto:
-
-```bash
-python3 -c "c=open('styles.css').read(); print(c.count('{'), c.count('}'))"
-# los dos números deben ser iguales
+### Vercel
+Conectado a rama `main` de GitHub. Cada push auto-despliega en:
+```
+https://qperu.vercel.app
 ```
 
-### 4. QPerú todavía NO es una división aceptada de QCousins
-
-**Estado actual:** la solicitud de integración a QCousins ya está presentada y el
-proceso está avanzado, pero falta la respuesta final. Hasta que llegue, el sitio dice
-**"comunidad peruana ... en proceso de integración a QCousins"** — nunca "división
-peruana de QCousins". Afirmar la membresía antes de tiempo es un problema frente a
-QWorld.
-
-Cuando se apruebe, hay que actualizar estos cinco lugares:
-
-1. `<meta name="description">`
-2. `<meta property="og:description">` (es lo que se ve al compartir el link)
-3. el lede de `#red`
-4. la misión en `#mision` ("siguiendo el modelo de" → "como parte de")
-5. `.footer-org`
-
-Y de paso el `aria-label` del `.net-diagram`.
-
-Si en cambio no se aprueba, hay que quitar las menciones a QCousins de esos mismos
-lugares — por eso conviene que sigan siendo pocos y localizados.
-
-### 5. El SVG del circuito está fuera del hero
-
-El hero usa `min-height: calc(100vh - 138px)`. Si el SVG del circuito estuviera dentro,
-rompería esa altura. Vive en `.circuit-band`, justo después del `</section>` del hero.
-
----
-
-## Breakpoints
-
-| ancho | qué cambia |
-|---|---|
-| > 1100px | 2 columnas (52% / 48%), `--pad-x: 60px`, `<br>` visibles |
-| ≤ 1100px | 1 columna, logo debajo del texto, `--pad-x: 40px`, `<br>` ocultos |
-| ≤ 700px | menú oculto, CTAs apilados, `--pad-x: 24px` |
-
-Que el logo aparezca **debajo** del texto en una ventana de ~1000px es correcto, no un
-bug. Para ver el diseño de escritorio hace falta una ventana de 1100px o más
-(y zoom al 100% — `Cmd + 0`).
-
----
-
-## Desarrollo local
-
+### Desarrollo Local
 ```bash
+# Servir localmente
 python3 -m http.server 8000
+
+# Abrir en navegador
+http://localhost:8000
 ```
 
-Y abre http://localhost:8000. No hay nada que compilar.
+## ✨ Cambios Implementados
 
-Para revisar el hero de verdad, usa el inspector en 1536 × 1024. Referencias medidas
-del diseño original:
+- ✅ Hero redimensionado a pantalla completa (100vh - 138px)
+- ✅ Logo1 (vertical) en hero: 560px, responsivo
+- ✅ Logo2 (horizontal) en navbar: 240px máx
+- ✅ Grid 52/48 para balance visual perfecto
+- ✅ Título 84px con max-width 12ch para quiebre correcto
+- ✅ Subtítulo actualizado: "talleres, eventos, recursos y colaboración global"
+- ✅ Botón "Conoce más" con borde y texto rojos
+- ✅ SVG del circuito cuántico movido fuera del hero
+- ✅ Footer con créditos y autor
+- ✅ Responsive completo (desktop, tablet, mobile)
+- ✅ Secciones: Misión, Actividades, Red Global, Comunidad, Agenda, Únete
 
-- navbar: 138px de alto
-- título: arranca en x≈60, font-size ≈ 81px, 5 líneas
-- logo del hero: 560px de ancho
-- sin scroll horizontal en 1536px, 1020px ni 390px
+## 🎓 Stack Tecnológico
+
+- **HTML5**: Semántica moderna
+- **CSS3**: Custom properties, Grid, Flexbox, Media queries
+- **JavaScript Vanilla**: Scroll reveal, animaciones
+- **Google Fonts**: Archivo, Archivo Black, IBM Plex Mono
+- **SVG**: Circuito cuántico con animaciones
+- **Git + GitHub**: Control de versiones
+- **Vercel**: Hosting y deployment automático
+
+## 👩‍💻 Autor
+
+**Isabel Dávila Elías**  
+📧 [rociodavilaelias@gmail.com](mailto:rociodavilaelias@gmail.com)
 
 ---
 
-## Deploy
+**QPerú** es parte de **QCousins**, la red de comunidades locales de **QWorld**.  
+🌐 [qworld.net](https://qworld.net)
 
-Vercel está conectado al repo. **Cada push a `main` redespliega solo** — no hay que
-hacer nada más.
-
-```bash
-git add -A
-git commit -m "..."
-git push
-```
-
-Configuración en Vercel (ya seteada, no tocar):
-
-- Framework Preset: **Other**
-- Build Command / Output Directory / Install Command: **vacíos**
-- Root Directory: **raíz del repo**
-- Environment Variables: **ninguna**
-
-> **No agregues API keys aquí.** El sitio es 100% frontend: cualquier valor terminaría
-> visible en el navegador de quien visite la página, aunque el repo sea privado. Solo
-> tendría sentido si algún día se agrega un endpoint en `/api/` que corra en el servidor.
-
-Después de cada deploy, abre el sitio con `Cmd + Shift + R` — Vercel cachea fuerte y es
-normal seguir viendo la versión anterior.
-
----
-
-## Mantenimiento
-
-**Cambiar el QR de WhatsApp** — reemplaza `assets/wa-qr.png` con el mismo nombre. No
-hay que tocar el HTML.
-
-**Agregar eventos reales** — en `#agenda`, reemplaza la tarjeta placeholder por una
-tarjeta por evento: fecha en `.agenda-estado`, título, descripción y botón de
-inscripción.
-
-**Activar quechua** — en `#comunidad`, cambia el chip `QU` de `class="chip"` a
-`class="chip chip-on"` y quita el texto "en camino".
-
-**Correo de contacto** — hoy apunta a `hola@qperu.org` en la sección `#unete`.
-Cámbialo cuando exista el buzón real.
-
-**Créditos del footer** — el `<footer>` no lleva imagen a propósito. Antes tenía un
-`icon.png` que se rompía si el archivo faltaba en el deploy, y un logo roto se ve peor
-que ningún logo. Hoy es solo texto, deliberadamente mínimo:
-
-```
-QPerú — Comunidad peruana de computación cuántica
-                        Hecho por Isabel Dávila Elías · © 2026 QPerú
-```
-
-Lo de QCousins / QWorld no va aquí: ya está explicado en `#red`, y repetirlo en el
-footer recargaba el cierre de la página. En celular las dos líneas se apilan.
-
-**Colores y tipografías** — variables CSS al inicio de `styles.css`:
-`--rojo: #F10515`, `--tinta: #121316`. Las tipografías (Archivo, Archivo Black,
-IBM Plex Mono) se cargan desde Google Fonts en el `<head>`.
+**Última actualización**: Julio 2026
