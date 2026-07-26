@@ -544,3 +544,9 @@ p + p { margin-top: 1rem; }
   .hero .btn { text-align: center; }
   .hero-visual img { width: min(78%, 320px); }
 }
+
+/* FIX: asegurar que el contenedor dentro del hero se expande correctamente */
+.hero > .container {
+  width: 100%;
+  flex: 1;
+}
