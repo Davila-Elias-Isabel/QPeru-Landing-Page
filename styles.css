@@ -164,14 +164,14 @@ p + p { margin-top: 1rem; }
 
 .hero-mark {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 .hero-mark img {
-  width: clamp(300px, 40vw, 580px);
+  width: clamp(350px, 45vw, 650px);
   height: auto;
-  max-width: 580px;
+  max-width: 650px;
   object-fit: contain;
 }
 
