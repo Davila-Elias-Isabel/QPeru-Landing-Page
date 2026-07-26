@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QPerú — Computación cuántica para todo el Perú</title>
+  <meta name="description" content="QPerú es la división peruana de QCousins (QWorld). Divulgamos y democratizamos la computación cuántica en el Perú con talleres, charlas y comunidad activa — en español, inglés y pronto quechua.">
+  <meta property="og:title" content="QPerú — Computación cuántica para todo el Perú">
+  <meta property="og:description" content="Talleres, charlas y comunidad activa. División peruana de QCousins, parte de la red global QWorld.">
+  <meta property="og:image" content="/assets/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="/assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav" id="inicio">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#inicio" aria-label="QPerú — inicio">
+      <img src="assets/logo.png" alt="QPerú" height="36">
+    </a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="#mision">Misión</a>
+      <a href="#actividades">Actividades</a>
+      <a href="#red">Red global</a>
+      <a href="#comunidad">Comunidad</a>
+    </nav>
+    <a class="btn btn-rojo nav-cta" href="#unete">Únete</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═════════ HERO ═════════ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">QWorld&nbsp;→&nbsp;QCousins&nbsp;→&nbsp;QPerú</p>
+        <h1>Democratizamos la computación <span class="rojo">cuántica</span> en el Perú.</h1>
+        <p class="hero-sub">Una comunidad abierta que acerca la cuántica a estudiantes, profesionales
+        y comunidades de todo el país — con talleres, charlas y participación activa,
+        en español e inglés, y pronto en quechua.</p>
+        <div class="cta-row">
+          <a class="btn btn-rojo" href="#unete">Únete a la comunidad</a>
+          <a class="btn btn-linea" href="#actividades">Ver qué hacemos</a>
+        </div>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <img src="assets/icon.png" alt="">
+      </div>
+    </div>
+
+    <!-- Signature: circuito cuántico / línea de Nazca -->
+    <div class="container">
+      <svg class="hero-circuit" viewBox="0 0 1000 90" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <text x="0" y="52" class="cq-ket">|0⟩</text>
+        <path class="cq-wire" d="M 52 45 H 940" />
+        <g class="cq-gate cq-g1">
+          <rect x="180" y="23" width="44" height="44" rx="4"/>
+          <text x="202" y="53">H</text>
+        </g>
+        <g class="cq-gate cq-g2">
+          <circle cx="420" cy="45" r="7" class="cq-dot"/>
+        </g>
+        <g class="cq-gate cq-g3">
+          <rect x="600" y="23" width="52" height="44" rx="4"/>
+          <path class="cq-meter" d="M 611 58 A 15 15 0 0 1 641 58"/>
+          <line class="cq-needle" x1="626" y1="58" x2="637" y2="41"/>
+        </g>
+        <path class="cq-chevron" d="M 946 27 L 964 45 L 946 63" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═════════ MISIÓN ═════════ -->
+  <section class="section" id="mision">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">|misión⟩</p>
+        <h2>Divulgar y<br>democratizar.</h2>
+      </div>
+      <div>
+        <p class="lede">Nuestra misión es divulgar y democratizar la computación cuántica en el Perú
+        a través de talleres, charlas y una comunidad activa, como parte de QCousins / QWorld.</p>
+        <p>Creemos que la cuántica no es un tema reservado a unos pocos laboratorios: es una
+        tecnología que el país necesita entender, discutir y construir. Por eso todas nuestras
+        actividades ponen el énfasis en la participación activa — aquí nadie viene solo a mirar.</p>
+        <ul class="facts reveal-group">
+          <li><span class="fact-k">Abierta</span><span>Actividades accesibles para todo el ecosistema</span></li>
+          <li><span class="fact-k">Global</span><span>Conectada a la red QWorld</span></li>
+          <li><span class="fact-k">Trilingüe</span><span>Español · English · Quechua en camino</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ QUÉ HACEMOS ═════════ -->
+  <section class="section section-humo" id="actividades">
+    <div class="container">
+      <p class="eyebrow">|actividades⟩</p>
+      <h2>Nuestro circuito</h2>
+      <div class="cards reveal-group">
+
+        <article class="card">
+          <svg class="card-circuit" viewBox="0 0 220 44" aria-hidden="true">
+            <path class="cq-wire" d="M 0 22 H 220"/>
+            <g class="cq-gate"><rect x="88" y="4" width="36" height="36" rx="4"/><text x="106" y="29">H</text></g>
+          </svg>
+          <h3>Talleres</h3>
+          <p>Sesiones prácticas con herramientas abiertas como Qiskit. Sin requisitos previos:
+          solo curiosidad y una laptop.</p>
+          <p class="card-nota">Todo empieza en superposición.</p>
+        </article>
+
+        <article class="card">
+          <svg class="card-circuit" viewBox="0 0 220 44" aria-hidden="true">
+            <path class="cq-wire" d="M 0 22 H 220"/>
+            <g class="cq-gate">
+              <rect x="86" y="4" width="42" height="36" rx="4"/>
+              <path class="cq-meter" d="M 95 32 A 12 12 0 0 1 119 32"/>
+              <line class="cq-needle" x1="107" y1="32" x2="116" y2="18"/>
+            </g>
+          </svg>
+          <h3>Charlas</h3>
+          <p>Divulgación con invitados del ecosistema local y de la red QWorld, para entender
+          qué es real — y qué no — en la cuántica de hoy.</p>
+          <p class="card-nota">Colapsamos la teoría en ideas claras.</p>
+        </article>
+
+        <article class="card">
+          <svg class="card-circuit" viewBox="0 0 220 44" aria-hidden="true">
+            <path class="cq-wire" d="M 0 12 H 220"/>
+            <path class="cq-wire" d="M 0 34 H 220"/>
+            <circle cx="110" cy="12" r="5" class="cq-dot"/>
+            <line class="cq-vwire" x1="110" y1="12" x2="110" y2="34"/>
+            <circle cx="110" cy="34" r="8" class="cq-oplus"/>
+            <line class="cq-vwire" x1="102" y1="34" x2="118" y2="34"/>
+          </svg>
+          <h3>Comunidad activa</h3>
+          <p>Grupos de estudio, proyectos y eventos globales de QWorld. Un espacio para
+          conocer gente, colaborar y crecer juntos.</p>
+          <p class="card-nota">Entrelazados con el mundo.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ RED GLOBAL ═════════ -->
+  <section class="section" id="red">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">|red-global⟩</p>
+        <h2>La división peruana de QCousins</h2>
+      </div>
+      <div>
+        <p class="lede">QPerú es la división peruana de QCousins, la red global de comunidades
+        locales bajo QWorld.</p>
+        <p>Formar parte de esta red significa acceso a talleres internacionales, mentores y una
+        comunidad que cruza fronteras — con los pies bien puestos en el Perú. Lo que aprendemos
+        afuera lo traemos acá; lo que construimos acá lo compartimos con el mundo.</p>
+        <svg class="net-diagram" viewBox="0 0 640 90" aria-label="QWorld conecta con QCousins y QCousins con QPerú">
+          <path class="cq-wire" d="M 60 34 H 580"/>
+          <circle cx="60" cy="34" r="8" class="net-node"/>
+          <circle cx="320" cy="34" r="8" class="net-node"/>
+          <path class="cq-chevron net-chev" d="M 572 20 L 586 34 L 572 48"/>
+          <text x="60" y="74" class="net-label">QWorld</text>
+          <text x="320" y="74" class="net-label">QCousins</text>
+          <text x="580" y="74" class="net-label net-label-rojo">QPerú</text>
+        </svg>
+        <p><a class="link-ext" href="https://qworld.net" target="_blank" rel="noopener">Conoce QWorld →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ COMUNIDAD / PARA QUIÉN ═════════ -->
+  <section class="section section-humo" id="comunidad">
+    <div class="container">
+      <p class="eyebrow">|comunidad⟩</p>
+      <h2>Hecha para el ecosistema peruano</h2>
+      <div class="rows reveal-group">
+        <div class="row">
+          <h3>Estudiantes</h3>
+          <p>Universitarios que quieren ir más allá del sílabo y explorar lo que viene.</p>
+        </div>
+        <div class="row">
+          <h3>Profesionales</h3>
+          <p>De tecnología, ciencia, seguridad y más, que necesitan entender el impacto real de la cuántica.</p>
+        </div>
+        <div class="row">
+          <h3>Comunidades</h3>
+          <p>Clubes, grupos técnicos y organizaciones que quieren llevar la cuántica a su gente.</p>
+        </div>
+      </div>
+
+      <div class="idiomas">
+        <p class="idiomas-titulo">La divulgación también es una decisión de idioma:</p>
+        <div class="chips">
+          <span class="chip chip-on">ES · Español</span>
+          <span class="chip chip-on">EN · English</span>
+          <span class="chip">QU · Quechua — en camino</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ AGENDA ═════════ -->
+  <section class="section" id="agenda">
+    <div class="container">
+      <p class="eyebrow">|agenda⟩</p>
+      <h2>Próximas actividades</h2>
+      <div class="agenda-card">
+        <p class="agenda-estado">Calendario 2026 en preparación</p>
+        <p>Los primeros talleres y charlas se anunciarán pronto. Únete a la comunidad
+        y sé de las primeras personas en enterarte.</p>
+        <a class="btn btn-linea" href="#unete">Avísame primero</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ ÚNETE ═════════ -->
+  <section class="section-unete" id="unete">
+    <div class="container unete-grid">
+      <div>
+        <p class="eyebrow eyebrow-blanco">|únete⟩</p>
+        <h2>Súmate al circuito.</h2>
+        <p class="unete-sub">Escanea el QR y entra al grupo <strong>QPerú&nbsp;·&nbsp;Init</strong> en WhatsApp.
+        Ahí anunciamos talleres, charlas y todo lo que viene.</p>
+        <p class="unete-sub unete-sub-alt">¿Quieres dar una charla, proponer un taller o llevar QPerú
+        a tu universidad u organización?</p>
+        <div class="cta-row">
+          <a class="btn btn-blanco" href="mailto:hola@qperu.org">Escríbenos</a>
+        </div>
+      </div>
+      <figure class="qr-card">
+        <img src="assets/wa-qr.png" alt="Código QR para unirse al grupo QPerú - Init en WhatsApp" width="260" height="260">
+        <figcaption>
+          <span class="qr-titulo">QPerú&nbsp;·&nbsp;Init</span>
+          <span class="qr-sub">Grupo de WhatsApp</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <img src="assets/icon.png" alt="QPerú" width="40" height="40">
+    <p>QPerú — división peruana de QCousins, parte de <a href="https://qworld.net" target="_blank" rel="noopener">QWorld</a>.</p>
+    <p class="footer-copy">© 2026 QPerú</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
