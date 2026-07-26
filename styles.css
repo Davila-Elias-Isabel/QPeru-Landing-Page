@@ -120,7 +120,7 @@ p + p { margin-top: 1rem; }
   gap: 32px;
 }
 
-.nav-logo img { height: 56px; width: auto; }
+.nav-logo img { height: 64px; width: auto; }
 
 .nav-links {
   display: flex;
@@ -145,7 +145,7 @@ p + p { margin-top: 1rem; }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
   gap: 48px;
   align-items: center;
 }
@@ -159,7 +159,7 @@ p + p { margin-top: 1rem; }
 }
 
 .hero-mark img {
-  width: min(100%, 700px);
+  width: min(100%, 800px);
   height: auto;
   object-fit: contain;
   margin-left: auto;
