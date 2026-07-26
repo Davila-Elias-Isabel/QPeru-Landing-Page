@@ -1,8 +1,8 @@
 # QPerú — Landing page
 
-Sitio de la comunidad **QPerú**, división peruana de QCousins dentro de la red global
-QWorld. Sitio estático: HTML + CSS + un JS mínimo. Sin framework, sin build, sin
-dependencias.
+Sitio de **QPerú**, comunidad peruana de computación cuántica, en proceso de integración
+a QCousins / QWorld. Sitio estático: HTML + CSS + un JS mínimo. Sin framework, sin build,
+sin dependencias.
 
 **Producción:** https://qperu.vercel.app
 
@@ -31,11 +31,11 @@ dependencias.
 | — | banda del circuito cuántico (SVG animado) |
 | `#mision` | misión y tres datos rápidos |
 | `#actividades` | talleres / charlas / comunidad, con mini-circuitos SVG |
-| `#red` | QWorld → QCousins → QPerú |
+| `#red` | relación con QCousins / QWorld |
 | `#comunidad` | públicos + chips de idioma |
 | `#agenda` | placeholder del calendario 2026 |
 | `#unete` | QR de WhatsApp + correo |
-| — | footer: atribución a QWorld, créditos y copyright |
+| — | footer: nombre de la comunidad, créditos y copyright |
 
 ---
 
@@ -99,7 +99,28 @@ python3 -c "c=open('styles.css').read(); print(c.count('{'), c.count('}'))"
 # los dos números deben ser iguales
 ```
 
-### 4. El SVG del circuito está fuera del hero
+### 4. QPerú todavía NO es una división aceptada de QCousins
+
+**Estado actual:** la solicitud de integración a QCousins ya está presentada y el
+proceso está avanzado, pero falta la respuesta final. Hasta que llegue, el sitio dice
+**"comunidad peruana ... en proceso de integración a QCousins"** — nunca "división
+peruana de QCousins". Afirmar la membresía antes de tiempo es un problema frente a
+QWorld.
+
+Cuando se apruebe, hay que actualizar estos cinco lugares:
+
+1. `<meta name="description">`
+2. `<meta property="og:description">` (es lo que se ve al compartir el link)
+3. el lede de `#red`
+4. la misión en `#mision` ("siguiendo el modelo de" → "como parte de")
+5. `.footer-org`
+
+Y de paso el `aria-label` del `.net-diagram`.
+
+Si en cambio no se aprueba, hay que quitar las menciones a QCousins de esos mismos
+lugares — por eso conviene que sigan siendo pocos y localizados.
+
+### 5. El SVG del circuito está fuera del hero
 
 El hero usa `min-height: calc(100vh - 138px)`. Si el SVG del circuito estuviera dentro,
 rompería esa altura. Vive en `.circuit-band`, justo después del `</section>` del hero.
@@ -182,8 +203,15 @@ Cámbialo cuando exista el buzón real.
 
 **Créditos del footer** — el `<footer>` no lleva imagen a propósito. Antes tenía un
 `icon.png` que se rompía si el archivo faltaba en el deploy, y un logo roto se ve peor
-que ningún logo. Hoy es solo texto: atribución a QWorld a la izquierda, y créditos +
-copyright a la derecha (`.footer-credito`). En celular se apilan.
+que ningún logo. Hoy es solo texto, deliberadamente mínimo:
+
+```
+QPerú — Comunidad peruana de computación cuántica
+                        Hecho por Isabel Dávila Elías · © 2026 QPerú
+```
+
+Lo de QCousins / QWorld no va aquí: ya está explicado en `#red`, y repetirlo en el
+footer recargaba el cierre de la página. En celular las dos líneas se apilan.
 
 **Colores y tipografías** — variables CSS al inicio de `styles.css`:
 `--rojo: #F10515`, `--tinta: #121316`. Las tipografías (Archivo, Archivo Black,
