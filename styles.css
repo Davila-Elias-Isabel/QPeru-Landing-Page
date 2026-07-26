@@ -169,9 +169,9 @@ p + p { margin-top: 1rem; }
 }
 
 .hero-mark img {
-  width: clamp(280px, 38vw, 520px);
+  width: clamp(300px, 40vw, 580px);
   height: auto;
-  max-width: 520px;
+  max-width: 580px;
   object-fit: contain;
 }
 
