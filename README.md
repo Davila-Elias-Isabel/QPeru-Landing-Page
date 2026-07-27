@@ -112,7 +112,7 @@ qperu-landing/
 :root {
   --maxw: 1680px;           /* ancho máximo contenedor */
   --pad-x: 60px;            /* padding horizontal */
-  --rojo: #F10515;
+  --rojo: #c01019;
   --tinta: #121316;
   --gris: #5E5F66;
   --blanco: #FFFFFF;
