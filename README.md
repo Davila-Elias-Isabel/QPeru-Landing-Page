@@ -47,8 +47,8 @@ Landing page moderna y responsive para **QPerú**, la comunidad peruana de compu
 ## 🎨 Diseño Visual
 
 ### Colores
-- **Rojo principal**: #F10515 (marca QPerú)
-- **Rojo oscuro**: #C50411 (hover)
+- **Rojo principal**: #c01019 (marca QPerú)
+- **Rojo oscuro**: #8b0812 (hover)
 - **Tinta**: #121316 (texto principal)
 - **Gris**: #5E5F66 (texto secundario)
 - **Humo**: #F7F6F3 (fondos claros)
