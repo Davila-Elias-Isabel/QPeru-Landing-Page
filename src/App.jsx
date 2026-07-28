@@ -9,7 +9,6 @@ import Comunidad from './components/Comunidad'
 import Agenda from './components/Agenda'
 import Equipo from './components/Equipo'
 import Recursos from './components/Recursos'
-import Contacto from './components/Contacto'
 import Unete from './components/Unete'
 import Footer from './components/Footer'
 
@@ -28,7 +27,6 @@ export default function App() {
         <Agenda />
         <Equipo />
         <Recursos />
-        <Contacto />
         <Unete />
       </main>
       <Footer />
