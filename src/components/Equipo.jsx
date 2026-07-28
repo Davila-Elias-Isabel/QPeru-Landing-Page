@@ -7,23 +7,23 @@ export default function Equipo() {
     {
       id: 1,
       avatar: '👩‍💻',
-      name: 'Isabel Dávila Elías',
-      role: 'Fundadora & Coordinadora',
-      bio: 'Ingeniera de sistemas apasionada por la computación cuántica y la educación tecnológica.'
+      name: 'María Julia Pajares',
+      role: 'Fundadora',
+      bio: 'Apasionada por democratizar la computación cuántica y crear oportunidades en educación tecnológica.'
     },
     {
       id: 2,
       avatar: '👨‍🔬',
-      name: 'Posición Abierta',
-      role: 'Instructor de Talleres',
-      bio: '¿Quieres unirte a nuestro equipo? Contáctanos para ser parte de QPerú.'
+      name: 'Renzo Cienfuegos',
+      role: 'Fundador',
+      bio: 'Experto en computación cuántica comprometido con impulsar innovación en el Perú.'
     },
     {
       id: 3,
       avatar: '👨‍💼',
       name: 'Posición Abierta',
-      role: 'Coordinador de Comunidad',
-      bio: 'Ayuda a crecer nuestra comunidad y gestiona eventos y actividades.'
+      role: 'Únete al Equipo',
+      bio: '¿Te interesa colaborar? Contáctanos para ser parte de QPerú y la revolución cuántica.'
     }
   ]
 
