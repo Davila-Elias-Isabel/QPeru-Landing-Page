@@ -670,29 +670,34 @@ p + p { margin-top: 1rem; }
   padding: 80px 0;
 }
 
-.unete-center {
-  display: flex;
-  justify-content: center;
+.unete-grid-2 {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 60px;
   align-items: center;
+  max-width: 900px;
+}
+
+.qr-left {
+  margin: 0;
 }
 
 .unete-content {
-  text-align: center;
-  max-width: 500px;
+  text-align: left;
 }
 
 .unete-content h2 {
   color: var(--blanco);
-  margin-bottom: 0.8rem;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.15;
 }
 
 .unete-text {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2.5rem;
-  font-weight: 500;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.7;
+  font-weight: 400;
 }
 
 .unete-sub {
@@ -808,11 +813,12 @@ p + p { margin-top: 1rem; }
   .hero h1 { max-width: 16ch; }
   .hero-visual img { width: min(70%, 420px); }
   .nav-inner { min-height: 96px; }
-  .split, .unete-grid { grid-template-columns: 1fr; gap: 32px; }
+  .split, .unete-grid, .unete-grid-2 { grid-template-columns: 1fr; gap: 32px; }
   .cards, .rows, .cursos-grid, .team-grid, .recursos-grid, .contacto-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .section { padding: 72px 0; }
   .hero-circuit { margin-top: 48px; }
+  .unete-content { text-align: center; }
 }
 
 @media (max-width: 700px) {
