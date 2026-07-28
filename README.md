@@ -259,7 +259,7 @@ const cursos = [
 ## 👥 Equipo
 
 **Fundadores:**
-- **María Julia Pajares** - Fundadora
+- **María Julia Pareja** - Fundadora
 - **Renzo Cienfuegos** - Fundador
 
 ---

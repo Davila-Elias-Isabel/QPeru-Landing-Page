@@ -7,7 +7,7 @@ export default function Equipo() {
     {
       id: 1,
       avatar: '👩‍💻',
-      name: 'María Julia Pajares',
+      name: 'María Julia Pareja',
       role: 'Fundadora',
       bio: 'Apasionada por democratizar la computación cuántica y crear oportunidades en educación tecnológica.'
     },
