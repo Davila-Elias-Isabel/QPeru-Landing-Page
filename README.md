@@ -32,10 +32,13 @@ Landing page moderna y responsive para **QPerú**, la comunidad peruana de compu
 ### Secciones de Contenido
 1. **Misión**: Propósito y valores (Abierta, Global, Trilingüe)
 2. **Actividades**: Talleres, Charlas, Comunidad activa (3 cards)
-3. **Red Global**: Conexión con QWorld y QCousins
-4. **Comunidad**: A quién va dirigida (Estudiantes, Profesionales, Comunidades)
-5. **Agenda**: Próximas actividades
-6. **Únete**: Llamada a acción con QR de WhatsApp
+3. **Cursos**: 3 cursos de computación cuántica (data-driven)
+4. **Red Global**: Conexión con QWorld y QCousins
+5. **Comunidad**: A quién va dirigida (Estudiantes, Profesionales, Comunidades)
+6. **Agenda**: Próximas actividades
+7. **Equipo**: Fundadores María Julia Pajares y Renzo Cienfuegos + posición abierta (data-driven)
+8. **Recursos**: 4 recursos gratuitos (data-driven)
+9. **Únete**: QR de WhatsApp centrado en fondo rojo
 
 ### Footer
 - Información: "QPerú — división peruana de QCousins, parte de QWorld"
@@ -93,16 +96,41 @@ Landing page moderna y responsive para **QPerú**, la comunidad peruana de compu
 
 ```
 qperu-landing/
-├── index.html           # Estructura HTML
-├── styles.css           # Estilos y responsive
-├── script.js            # Funcionalidad (scroll, reveal)
-├── README.md            # Este archivo
-├── assets/
-│   ├── logo1.png       # Logo vertical (Hero) - 1200×1219px
-│   ├── logo2.png       # Logo horizontal (Navbar)
-│   ├── icon.png        # Isotipo (favicon)
-│   └── wa-qr.png       # QR WhatsApp
-└── .git/                # Versionado con Git
+├── src/
+│   ├── main.jsx                      # Punto de entrada React
+│   ├── App.jsx                       # Componente raíz
+│   ├── index.css                     # Estilos (copiado tal cual de styles.css)
+│   ├── components/
+│   │   ├── Navbar.jsx               # Navegación + Logo
+│   │   ├── Hero.jsx                 # Sección principal
+│   │   ├── CircuitBand.jsx          # SVG circuito cuántico
+│   │   ├── Mission.jsx              # Misión y valores
+│   │   ├── Activities.jsx           # 3 actividades
+│   │   ├── Cursos.jsx               # 3 cursos (data-driven)
+│   │   ├── RedGlobal.jsx            # Red QWorld/QCousins
+│   │   ├── Comunidad.jsx            # Audiencias (data-driven)
+│   │   ├── Agenda.jsx               # Próximas actividades
+│   │   ├── Equipo.jsx               # Fundadores (data-driven)
+│   │   ├── Recursos.jsx             # Recursos gratuitos (data-driven)
+│   │   ├── Unete.jsx                # QR WhatsApp
+│   │   └── Footer.jsx               # Pie de página
+│   ├── hooks/
+│   │   └── useReveal.js             # Hook IntersectionObserver + prefers-reduced-motion
+│   └── assets/
+│       ├── logo1.png                # Logo vertical (Hero) - 1200×1219px
+│       ├── logo2.png                # Logo horizontal (Navbar)
+│       └── wa-qr.png                # QR WhatsApp
+├── public/
+│   ├── favicon.png                  # Favicon (placeholder)
+│   └── og-image.png                 # OG Image (placeholder)
+├── index.html                       # Vite entry point
+├── vite.config.js                   # Configuración Vite
+├── package.json                     # Dependencias
+├── .eslintrc.cjs                    # Eslint config
+├── .gitignore                       # Git ignore
+├── MIGRATION.md                     # Notas de migración
+├── README.md                        # Este archivo
+└── .git/                            # Versionado con Git
 ```
 
 ## 🔧 Especificaciones Técnicas
@@ -145,15 +173,28 @@ https://qperu.vercel.app
 
 ### Desarrollo Local
 ```bash
-# Servir localmente
-python3 -m http.server 8000
+# Instalar dependencias
+npm install
+
+# Servir localmente (puerto 5173)
+npm run dev
+
+# Compilar para producción
+npm run build
+
+# Previsualizar build
+npm run preview
+
+# Lint
+npm run lint
 
 # Abrir en navegador
-http://localhost:8000
+http://localhost:5173
 ```
 
 ## ✨ Cambios Implementados
 
+### Diseño & Contenido
 - ✅ Hero redimensionado a pantalla completa (100vh - 138px)
 - ✅ Logo1 (vertical) en hero: 560px, responsivo
 - ✅ Logo2 (horizontal) en navbar: 240px máx
@@ -164,25 +205,66 @@ http://localhost:8000
 - ✅ SVG del circuito cuántico movido fuera del hero
 - ✅ Footer con créditos y autor
 - ✅ Responsive completo (desktop, tablet, mobile)
-- ✅ Secciones: Misión, Actividades, Red Global, Comunidad, Agenda, Únete
+- ✅ Secciones: Misión, Actividades, Cursos, Red Global, Comunidad, Agenda, Equipo, Recursos, Únete
+
+### Migración a React (Julio 2026)
+- ✅ Migración completa de HTML/CSS/JS vanilla a React 18 + Vite 5
+- ✅ 14 componentes funcionales reutilizables
+- ✅ Hook personalizado `useReveal` para scroll-reveal animations
+- ✅ Componentes data-driven (Cursos, Equipo, Recursos, Comunidad, Activities)
+- ✅ Estilos CSS preservados 100% (copiados a src/index.css)
+- ✅ Fundadores: María Julia Pajares y Renzo Cienfuegos
+- ✅ Sección Contacto removida
+- ✅ Sección Únete simplificada: solo QR de WhatsApp
 
 ## 🎓 Stack Tecnológico
 
-- **HTML5**: Semántica moderna
-- **CSS3**: Custom properties, Grid, Flexbox, Media queries
-- **JavaScript Vanilla**: Scroll reveal, animaciones
+- **React 18.3.1**: Componentes funcionales con hooks
+- **Vite 5.1.0**: Bundler y dev server
+- **CSS3**: Custom properties, Grid, Flexbox, Media queries (copiado tal cual)
+- **JavaScript/JSX**: Componentes reutilizables, useReveal hook personalizado
 - **Google Fonts**: Archivo, Archivo Black, IBM Plex Mono
 - **SVG**: Circuito cuántico con animaciones
 - **Git + GitHub**: Control de versiones
-- **Vercel**: Hosting y deployment automático
+- **Vercel**: Hosting y deployment automático (auto-deploy en main)
 
-## 👩‍💻 Autor
+## 📊 Datos Hardcodeados
 
-**Isabel Dávila Elías**  
+Los datos están directamente en los componentes React como arrays:
+
+- **Cursos.jsx**: Array de 3 cursos con títulos, descripciones, estadísticas
+- **Equipo.jsx**: Array de fundadores y posiciones abiertas
+- **Recursos.jsx**: Array de 4 recursos gratuitos
+- **Comunidad.jsx**: Array de 3 audiencias objetivo
+- **Activities.jsx**: Array de 3 actividades (Talleres, Charlas, Comunidad)
+
+Para editar datos:
+1. Abre el archivo del componente (`src/components/NombreComponente.jsx`)
+2. Localiza el array de datos
+3. Edita los valores
+4. Haz push a `main` → Vercel redeploya automáticamente
+
+Ejemplo:
+```jsx
+const cursos = [
+  {
+    id: 1,
+    title: 'Nombre del curso',
+    description: 'Descripción...',
+    stats: [...]
+  }
+]
+```
+
+## 👥 Equipo
+
+**Fundadores:**
+- **María Julia Pajares** - Fundadora
+- **Renzo Cienfuegos** - Fundador
 
 ---
 
 **QPerú** es parte de **QCousins**, la red de comunidades locales de **QWorld**.  
 🌐 [qworld.net](https://qworld.net)
 
-**Última actualización**: Julio 2026
+**Última actualización**: Julio 2026 (Migración a React 18 + Vite 5)
