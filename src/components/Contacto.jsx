@@ -13,13 +13,6 @@ export default function Contacto() {
     },
     {
       id: 2,
-      title: 'WhatsApp',
-      contact: '+51 936 687 271',
-      link: 'https://wa.me/51936687271',
-      description: 'Únete a nuestro grupo de comunidad.'
-    },
-    {
-      id: 3,
       title: 'Redes Sociales',
       contact: '@QPeru',
       link: '#',
@@ -36,7 +29,7 @@ export default function Contacto() {
           {contactos.map((contacto) => (
             <div className="contacto-card" key={contacto.id}>
               <h3>{contacto.title}</h3>
-              <p><a href={contacto.link} target={contacto.id === 2 ? '_blank' : undefined} rel={contacto.id === 2 ? 'noopener' : undefined}>{contacto.contact}</a></p>
+              <p><a href={contacto.link}>{contacto.contact}</a></p>
               <p className="contacto-desc">{contacto.description}</p>
             </div>
           ))}
