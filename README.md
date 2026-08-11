@@ -1,4 +1,4 @@
-# QPerú — Landing Page
+# QPerú - Landing Page
 
 Landing page moderna y responsive para **QPerú**, la comunidad peruana de computación cuántica y división peruana de QCousins (QWorld).
 
