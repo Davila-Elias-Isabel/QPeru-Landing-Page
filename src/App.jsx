@@ -1,33 +1,41 @@
+import { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import CircuitBand from './components/CircuitBand'
-import Mission from './components/Mission'
-import Activities from './components/Activities'
-import Cursos from './components/Cursos'
-import RedGlobal from './components/RedGlobal'
-import Comunidad from './components/Comunidad'
-import Agenda from './components/Agenda'
-import Equipo from './components/Equipo'
-import Recursos from './components/Recursos'
-import Unete from './components/Unete'
 import Footer from './components/Footer'
+import Inicio from './pages/Inicio'
+import SobreNosotros from './pages/SobreNosotros'
+import Eventos from './pages/Eventos'
+import Contactanos from './pages/Contactanos'
+
+function ScrollManager() {
+  const { pathname, hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      const el = document.querySelector(hash)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return
+      }
+    }
+    window.scrollTo({ top: 0 })
+  }, [pathname, hash])
+
+  return null
+}
 
 export default function App() {
   return (
     <>
+      <ScrollManager />
       <Navbar />
       <main>
-        <Hero />
-        <CircuitBand />
-        <Mission />
-        <Activities />
-        <Cursos />
-        <RedGlobal />
-        <Comunidad />
-        <Agenda />
-        <Equipo />
-        <Recursos />
-        <Unete />
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+          <Route path="/eventos" element={<Eventos />} />
+          <Route path="/contactanos" element={<Contactanos />} />
+        </Routes>
       </main>
       <Footer />
     </>

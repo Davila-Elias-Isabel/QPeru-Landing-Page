@@ -1,67 +1,19 @@
-import { useReveal } from '../hooks/useReveal'
+import { useRevealVariant } from '../hooks/useReveal'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Cursos() {
-  const revealRef = useReveal()
-
-  const cursos = [
-    {
-      id: 1,
-      title: 'Introducción a la Computación Cuántica',
-      description: 'Formación integral para estudiantes de secundaria y universitarios. Desarrolla competencias en física, matemáticas y programación cuántica.',
-      stats: [
-        { value: '16+', label: 'SEMANAS' },
-        { value: '64', label: 'HORAS CLASE' },
-        { value: '4', label: 'MÓDULOS' }
-      ],
-      buttonClass: 'btn-rojo'
-    },
-    {
-      id: 2,
-      title: 'Qiskit: Programación Cuántica',
-      description: 'Aprende a programar circuitos cuánticos con Qiskit. Ideal para quienes ya conocen los fundamentos y quieren profundizar en la práctica.',
-      stats: [
-        { value: '8', label: 'SEMANAS' },
-        { value: '32', label: 'HORAS CLASE' },
-        { value: '3', label: 'PROYECTOS' }
-      ],
-      buttonClass: 'btn-linea'
-    },
-    {
-      id: 3,
-      title: 'Fundamentos de Física Cuántica',
-      description: 'Domina los principios teóricos de la mecánica cuántica. Requisito esencial para comprender las aplicaciones en computación cuántica.',
-      stats: [
-        { value: '12', label: 'SEMANAS' },
-        { value: '48', label: 'HORAS CLASE' },
-        { value: '5', label: 'UNIDADES' }
-      ],
-      buttonClass: 'btn-rojo'
-    }
-  ]
+  const revealRef = useRevealVariant('scale')
+  const { t } = useLanguage()
+  const c = t.cursos
 
   return (
     <section className="section" id="cursos">
       <div className="container">
-        <p className="eyebrow">|cursos⟩</p>
-        <h2>Formación en computación cuántica</h2>
-        <div className="cursos-grid reveal-group" ref={revealRef}>
-          {cursos.map((curso) => (
-            <article className="curso-card" key={curso.id}>
-              <div className="curso-header">
-                <h3>{curso.title}</h3>
-              </div>
-              <p className="curso-desc">{curso.description}</p>
-              <div className="curso-stats">
-                {curso.stats.map((stat, idx) => (
-                  <div className="stat" key={idx}>
-                    <span className="stat-value">{stat.value}</span>
-                    <span className="stat-label">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
-              <a href="#unete" className={`btn ${curso.buttonClass} btn-course`}>Inscribirse</a>
-            </article>
-          ))}
+        <p className="eyebrow">{c.eyebrow}</p>
+        <h2>{c.title}</h2>
+        <div className="agenda-card" ref={revealRef}>
+          <p className="agenda-estado"><span className="pulse-dot" aria-hidden="true"></span>&nbsp; {c.estado}</p>
+          <p>{c.texto}</p>
         </div>
       </div>
     </section>

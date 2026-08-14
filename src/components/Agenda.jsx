@@ -1,14 +1,19 @@
+import { Link } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
+
 export default function Agenda() {
+  const { t } = useLanguage()
+  const e = t.eventos
+
   return (
     <section className="section" id="agenda">
       <div className="container">
-        <p className="eyebrow">|agenda⟩</p>
-        <h2>Próximas actividades</h2>
+        <p className="eyebrow">{e.eyebrow}</p>
+        <h2>{e.title}</h2>
         <div className="agenda-card">
-          <p className="agenda-estado">Calendario 2026 en preparación</p>
-          <p>Los primeros talleres y charlas se anunciarán pronto. Únete a la comunidad
-        y sé de las primeras personas en enterarte.</p>
-          <a className="btn btn-linea" href="#unete">Avísame primero</a>
+          <p className="agenda-estado"><span className="pulse-dot" aria-hidden="true"></span>&nbsp; {e.estado}</p>
+          <p>{e.texto}</p>
+          <Link className="btn btn-linea" to="/contactanos">{e.cta}</Link>
         </div>
       </div>
     </section>

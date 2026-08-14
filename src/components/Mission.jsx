@@ -1,25 +1,25 @@
 import { useReveal } from '../hooks/useReveal'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Mission() {
   const revealRef = useReveal()
+  const { t } = useLanguage()
+  const m = t.sobreNosotros.mision
 
   return (
     <section className="section" id="mision">
       <div className="container split">
         <div>
-          <p className="eyebrow">|misión⟩</p>
-          <h2>Divulgar y<br/>democratizar.</h2>
+          <p className="eyebrow">{m.eyebrow}</p>
+          <h2>{m.title1}<br/>{m.title2}</h2>
         </div>
         <div ref={revealRef}>
-          <p className="lede">Nuestra misión es divulgar y democratizar la computación cuántica en el Perú
-        a través de talleres, charlas y una comunidad activa, como parte de QCousins / QWorld.</p>
-          <p>Creemos que la cuántica no es un tema reservado a unos pocos laboratorios: es una
-        tecnología que el país necesita entender, discutir y construir. Por eso todas nuestras
-        actividades ponen el énfasis en la participación activa — aquí nadie viene solo a mirar.</p>
+          <p className="lede">{m.lede}</p>
+          <p>{m.texto}</p>
           <ul className="facts reveal-group">
-            <li><span className="fact-k">Abierta</span><span>Actividades accesibles para todo el ecosistema</span></li>
-            <li><span className="fact-k">Global</span><span>Conectada a la red QWorld</span></li>
-            <li><span className="fact-k">Trilingüe</span><span>Español · English · Quechua en camino</span></li>
+            {m.facts.map((fact) => (
+              <li key={fact.k}><span className="fact-k">{fact.k}</span><span>{fact.v}</span></li>
+            ))}
           </ul>
         </div>
       </div>
