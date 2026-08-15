@@ -1088,3 +1088,8 @@ p + p { margin-top: 1rem; }
   width: 100%;
   flex: 1;
 }
+
+/* Logo según el tema activo */
+.logo-oscuro { display: none; }
+[data-theme="dark"] .logo-claro { display: none; }
+[data-theme="dark"] .logo-oscuro { display: block; }
