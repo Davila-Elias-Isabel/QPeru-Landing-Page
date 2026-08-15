@@ -47,7 +47,7 @@ export default function Navbar() {
           {/* Selector de idioma: cambia el contenido vía LanguageContext */}
           <div className="lang-switch" role="group" aria-label="Idioma / Language">
             <button type="button" className={lang === 'es' ? 'lang-btn lang-on' : 'lang-btn'} onClick={() => setLang('es')}>ES</button>
-            <button type="button" className={lang === 'en' ? 'lang-btn lang-on' : 'lang-btn'} onClick={() => setLang('en')}>EN</button>
+       
           </div>
           <button type="button" className="theme-toggle" onClick={toggleTheme} aria-label={t.nav.themeToggle}>
             {theme === 'dark' ? (
