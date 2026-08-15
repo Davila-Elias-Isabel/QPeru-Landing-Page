@@ -12,7 +12,7 @@ export const content = {
       title1: 'Democratizamos la computación ',
       titleRojo: 'cuántica',
       title2: ' en el Perú.',
-      sub: 'Una comunidad abierta que acerca la cuántica a estudiantes, profesionales y comunidades de todo el país - con talleres, eventos, recursos y colaboración global.',
+      sub: 'Una comunidad abierta que acerca la cuántica a estudiantes, profesionales y comunidades de todo el país con talleres, eventos, recursos y colaboración global.',
       ctaUnete: 'Únete a la comunidad',
       ctaConoce: 'Conoce más'
     },
@@ -106,7 +106,7 @@ export const content = {
         title1: 'Divulgar y',
         title2: 'democratizar.',
         lede: 'Nuestra misión es divulgar y democratizar la computación cuántica en el Perú a través de talleres, charlas y una comunidad activa.',
-        texto: 'Creemos que la cuántica no es un tema reservado a unos pocos laboratorios: es una tecnología que el país necesita entender, discutir y construir. Por eso todas nuestras actividades ponen el énfasis en la participación activa - aquí nadie viene solo a mirar.',
+        texto: 'Creemos que la cuántica no es un tema reservado a unos pocos laboratorios: es una tecnología que el país necesita entender, discutir y construir. Por eso todas nuestras actividades ponen el énfasis en la participación activa. Aquí nadie viene solo a mirar.',
         facts: [
           { k: 'Abierta', v: 'Actividades accesibles para todo el ecosistema' },
           { k: 'Local', v: 'Enfocada en el ecosistema peruano' },
@@ -118,7 +118,7 @@ export const content = {
         title1: 'Hacia dónde',
         title2: 'vamos.',
         lede: 'Ser la comunidad de referencia en computación cuántica del Perú.',
-        texto: 'Buscamos formar una nueva generación de talento peruano capaz de participar - como estudiantes, investigadores o profesionales - en la segunda revolución cuántica, dentro y fuera del país.'
+        texto: 'Buscamos formar una nueva generación de talento peruano capaz de participar como estudiantes, investigadores o profesionales en la segunda revolución cuántica, dentro y fuera del país.'
       },
       valores: {
         eyebrow: '|valores⟩',
@@ -126,7 +126,7 @@ export const content = {
         items: [
           { id: 1, title: 'Apertura', description: 'Todo el conocimiento que generamos es accesible: sin costo, sin requisitos previos rígidos.' },
           { id: 2, title: 'Colaboración', description: 'Construimos junto a universidades, comunidades técnicas y voluntariado activo, no en solitario.' },
-          { id: 3, title: 'Rigor', description: 'Divulgamos con precisión: explicamos qué es real - y qué no - en la cuántica de hoy.' },
+          { id: 3, title: 'Rigor', description: 'Divulgamos con precisión: explicamos qué es real, y qué no, en la cuántica de hoy.' },
           { id: 4, title: 'Impacto local', description: 'Priorizamos que el conocimiento cuántico eche raíces en el ecosistema peruano.' }
         ]
       }

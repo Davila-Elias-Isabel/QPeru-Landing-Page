@@ -5,8 +5,9 @@
           IBM Plex Mono (etiquetas, notación cuántica)
    ═══════════════════════════════════════════════════ */
 
+/*--rojo: #000000;*/
 :root {
-  --rojo: #000000;
+  --rojo: #d10a11;
   --rojo-oscuro: #333333;
   --dorado: #767676;
   --tinta: #1B1E1F;
@@ -1084,5 +1085,32 @@ p + p { margin-top: 1rem; }
 [data-theme="dark"] .logo-claro { display: none; }
 [data-theme="dark"] .logo-oscuro { display: block; }
 
-img { filter: grayscale(100%); }
+/*img { filter: grayscale(100%); }*/
 .nav-logo img, .hero-visual img { filter: none; }
+
+.card-actividad-pasada {
+  grid-column: 1 / -1;
+}
+
+.activity-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.activity-gallery img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.activity-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  filter: none;
+}
